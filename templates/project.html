@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='project-styles.css') }}">
+</head>
+<body>
+
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">krunal</a>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    <section id="project-showcase">
+        <div class="container">
+            <h1>Case Studies</h1>
+            <p>Don't take my word for it. Watch us in action.</p>
+
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Data Analytics & AI">Data Analytics & AI</button>
+                <button class="filter-btn" data-filter="Mobile App Development">Mobile App Development</button>
+                <button class="filter-btn" data-filter="Product Development">Product Development</button>
+                <button class="filter-btn" data-filter="Software Development">Software Development</button>
+            </div>
+
+            <!-- Project Cards -->
+            <div class="project-cards">
+
+                <div class="card" data-category="Product Development">
+                    <img src="static/use.jpeg" alt="Codebasics">
+                    <h3>Codebasics</h3>
+                    <p>Product Development</p>
+                    <p>Empowering Data Analytics and Data Science Students...</p>
+                </div>
+
+                <div class="card" data-category="Data Analytics & AI">
+                    <img src="static/use.jpeg" alt="Alacritics Analytics">
+                    <h3>Alacritics Analytics</h3>
+                    <p>Data Analytics & AI</p>
+                    <p>A Game-Changer Vendor Procurement Platform...</p>
+                </div>
+
+                <div class="card" data-category="Mobile App Development Product Development Software Development">
+                    <img src="static/use.jpeg" alt="Moon Tower Tickets">
+                    <h3>Moon Tower Tickets</h3>
+                    <p>Mobile App Development, Product Development, Software Development</p>
+                    <p>The traditional way of purchasing tickets...</p>
+                </div>
+
+                <!-- Add more cards as needed -->
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+        <footer class="footer">
+            <div class="footer__addr">
+              <h1 class="footer__logo">krunal patel</h1>
+                  
+              <h2>Contact :</h2>
+              
+              <email>krunalpatel35538@gmail.com
+               <br>
+                    
+                <a class="footer__btn" href="mailto:krunalpatel35538@gmail.com">Email Us</a>
+              </address>
+            </div>
+          
+            <ul class="footer__nav">
+              <li class="nav__item">
+                <h2 class="nav__title">My Profile</h2>
+          
+                <ul class="nav__ul">
+                    <li>
+                      <a href="https://github.com/krunalpatel355">GitHub</a>
+                    </li>
+            
+                    <li>
+                      <a href="https://www.linkedin.com/in/krunalpatel35538/">linkdin</a>
+                    </li>
+                        
+                    <li>
+                      <a href="#">resume</a>
+                    </li>
+                  </ul>
+              </li>
+        </footer>
+  
+<script>
+    // Get all filter buttons
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+// Get all project cards
+const cards = document.querySelectorAll('.card');
+
+// Add event listeners to filter buttons
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+
+        // Add active class to the clicked button
+        button.classList.add('active');
+
+        // Get the filter value of the clicked button
+        const filterValue = button.getAttribute('data-filter');
+
+        // Loop through the cards
+        cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+
+            // Show all cards if filter is 'all'
+            if (filterValue === 'all') {
+                card.style.display = 'block';
+            } else {
+                // Only show the card if its category matches the filter
+                if (cardCategory.includes(filterValue)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    });
+});
+
+</script>
+      
+
+</body>
+</html>
+  
