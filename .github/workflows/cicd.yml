@@ -22,13 +22,13 @@ jobs:
         with: 
             python-version: '3.9'
       
-      -name: Install dependencies
+      - name: Install dependencies
         runs:
           python -m pip install --upgrade pip
           pip install flask
           pip install pytest
       
-      -name: run tests
+      - name: run tests
         runs:
           pytest
 
@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      -name: build and push Docker imageq
+      - name: build and push Docker imageq
         users: docker/build-push-action@v4
         with:
           context: .
