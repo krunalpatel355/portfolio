@@ -19,7 +19,8 @@ jobs:
 
       - name: set up python
         user: action/setup-python@v4
-        with: python-version: '3.8'
+        with: 
+            python-version: '3.9'
       
       -name: Install dependencies
         runs:
