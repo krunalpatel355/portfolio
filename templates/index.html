@@ -1,257 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <!-- Link to Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
 
+{% block title %}Krunal Patel - Portfolio{% endblock %}
+
+{% block content %}
+<div class="home">
+    <!-- Social Sidebar -->
+    <div class="social-sidebar">
+        <a href="https://www.linkedin.com/in/krunalpatel35538/" target="_blank" class="social-icon">
+            <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+        </a>
+        <a href="#" target="_blank" class="social-icon">
+            <img src="{{ url_for('static', filename='web.jfif') }}" alt="resume">
+        </a>
+        <a href="https://github.com/krunalpatel355" target="_blank" class="social-icon">
+            <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub">
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon">
+            <img src="{{ url_for('static', filename='instagram.png') }}" alt="instagram">
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="heading-primary">HEY, I'M KRUNAL PATEL</h1>
+        <div class="home-hero__info">
+            <p class="text-primary">
+                A passionate Big Data student specializing in AI/ML and data analysis and
+                Currently enhancing skills in coding, data science, and developing innovative solutions.
+            </p>
+            <div style="display: flex;"><p style="display: block; margin: auto;">krunalpatel35538@gmail.com</p></div>
+        </div>
+        <div class="home-hero__cta">
+            <a href="{{ url_for('projects') }}" class="btn btn--bg">Projects</a>
+        </div>
+    </div>
+</div>  
+
+<div class="skills">
+    <div class="role-card">
+        <div class="icon">+</div>
+        <h2>Designer</h2>
+        <p>I value simple content structure, clean design patterns, and thoughtful interactions.</p>
+        <h3>Things I enjoy designing:</h3>
+        <ul>
+            <li>UX, UI, Web, Apps, Logos</li>
+        </ul>
+        <h3>Design Tools:</h3>
+        <ul>
+            <li>Affinity Designer</li>
+            <li>Figma</li>
+            <li>Pen & Paper</li>
+            <li>Sketch</li>
+        </ul>
+    </div>
+    
+    <div class="role-card role-card-2">
+        <div class="icon">></div>
+        <h2>Frontend Developer</h2>
+        <p>I like to code things from scratch, and enjoy bringing ideas to life in the browser.</p>
+        <h3>Languages I speak:</h3>
+        <ul>
+            <li>HTML, Pug, Slim, CSS, Sass, Git</li>
+        </ul>
+        <h3>Dev Tools:</h3>
+        <ul>
+            <li>Astro JS</li>
+            <li>Bitbucket</li>
+            <li>Bootstrap</li>
+            <li>Bulma</li>
+            <li>Codekit</li>
+            <li>Github</li>
+        </ul>
+    </div>
+    
+    <div class="role-card">
+        <div class="icon">-</div>
+        <h2>Mentor</h2>
+        <p>I genuinely care about people, and enjoy helping them work on their craft.</p>
+        <h3>Experiences I draw from:</h3>
+        <ul>
+            <li>UX/UI, Product design, Freelancing</li>
+        </ul>
+        <h3>Mentor Stats:</h3>
+        <ul>
+            <li>9+ years experience</li>
+            <li>30+ short courses</li>
+            <li>65+ bootcamps</li>
+            <li>250+ students</li>
+            <li>2,500+ mentor sessions</li>
+            <li>60+ group critiques</li>
+        </ul>
+    </div>
+</div>
+
+<div class="projects">
     <div class="container">
-
-        <!-- Navbar -->
-        <nav class="navbar">
-            <div class="container">
-                <a href="/" class="logo">krunal</a>
-                <ul class="nav-links">
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('projects') }}">Projects</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <div class="inner-card">
+            <div class="right">
+                <img src="static/use.jpeg" alt="">
+            </div>
+            <div class="left">
+                <h1>NLP Task</h1>
+                <p>Redesigning a legacy mobile app for India's largest private bank to appeal to a wider user base</p>
+                <ul>
+                    <li>NLP</li>
+                    <li>TENSERFLOW</li>
+                    <li>FLASK</li>
+                    <li>PYTHON</li>
                 </ul>
-            </div>
-        </nav>
-
-        <div class="home">
-
-            <!-- Social Sidebar -->
-            <div class="social-sidebar">
-                <a href="https://www.linkedin.com/in/krunalpatel35538/" target="_blank" class="social-icon">
-                    <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
-                </a>
-                <a href="#" target="_blank" class="social-icon">
-                    <img src="{{ url_for('static', filename='web.jfif') }}" alt="resume">
-                </a>
-                <a href="https://github.com/krunalpatel355" target="_blank" class="social-icon">
-                    <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub">
-                </a>
-                <a href="https://www.instagram.com" target="_blank" class="social-icon">
-                    <img src="{{ url_for('static', filename='instagram.png') }}" alt="instagram">
-                </a>
-            </div>
-
-            <!-- Main Content -->
-            
-            <div class="main-content">
-                <h1 class="heading-primary">HEY, I'M KRUNAL PATEL</h1>
-                <div class="home-hero__info">
-                  <p class="text-primary">
-                    A passionate Big Data student specializing in AI/ML and data analysis and
-                    Currently enhancing skills in coding, data science, and developing innovative solutions.
-                  </p>
-                  <div style="display: flex;"><p style="display: block; margin: auto;">krunalpatel35538@gmail.com</p></div>
+                <div class="project-btn">
+                    <a href="{{ url_for('project_details', project_id=1) }}" class="btn btn--bg">view</a>
+                    <a href="https://github.com/krunalpatel355/nlp-project" class="btn btn--bg">github</a>
                 </div>
-                <div class="home-hero__cta">
-                  <a href="{{ url_for('projects') }}" class="btn btn--bg">Projects</a>
-                </div>
-                
-            </div>
-
-        </div>  
-
-        <div class="skills">
-            <div class="role-card">
-              <div class="icon">+</div>
-              <h2>Designer</h2>
-              <p>I value simple content structure, clean design patterns, and thoughtful interactions.</p>
-              <h3>Things I enjoy designing:</h3>
-              <ul>
-                <li>UX, UI, Web, Apps, Logos</li>
-              </ul>
-              <h3>Design Tools:</h3>
-              <ul>
-                <li>Affinity Designer</li>
-                <li>Figma</li>
-                <li>Pen & Paper</li>
-                <li>Sketch</li>
-              </ul>
-            </div>
-          
-            <div class="role-card role-card-2">
-              <div class="icon">></div>
-              <h2>Frontend Developer</h2>
-              <p>I like to code things from scratch, and enjoy bringing ideas to life in the browser.</p>
-              <h3>Languages I speak:</h3>
-              <ul>
-                <li>HTML, Pug, Slim, CSS, Sass, Git</li>
-              </ul>
-              <h3>Dev Tools:</h3>
-              <ul>
-                <li>Astro JS</li>
-                <li>Bitbucket</li>
-                <li>Bootstrap</li>
-                <li>Bulma</li>
-                <li>Codekit</li>
-                <li>Github</li>
-              </ul>
-            </div>
-          
-            <div class="role-card">
-              <div class="icon">-</div>
-              <h2>Mentor</h2>
-              <p>I genuinely care about people, and enjoy helping them work on their craft.</p>
-              <h3>Experiences I draw from:</h3>
-              <ul>
-                <li>UX/UI, Product design, Freelancing</li>
-              </ul>
-              <h3>Mentor Stats:</h3>
-              <ul>
-                <li>9+ years experience</li>
-                <li>30+ short courses</li>
-                <li>65+ bootcamps</li>
-                <li>250+ students</li>
-                <li>2,500+ mentor sessions</li>
-                <li>60+ group critiques</li>
-              </ul>
-            </div>
-          </div>
-
-        <div class="projects">
-            <div class="container">
-            
-              
-              
-                <div class="inner-card">
-                  <div class="right">
-                    <img src="static/use.jpeg" alt="">
-                  </div>
-                  <div class="left">
-                   <h1>NLP Task</h1>
-                   <p>Redesigning a legacy mobile app for India’s largest private bank to appeal to a wider user base</p>
-                   <ul>
-                     <li>NLP</li>
-                     <li>TENSERFLOW</li>
-                     <li>FLASK</li>
-                     <li>PYTHON</li>
-                   </ul>
-                   <div class="project-btn">
-                    <a href="{{ url_for('project_1') }}" class="btn btn--bg">view</a>
-                    <a href="./#projects" class="btn btn--bg">github</a>
-                   </div>
-                  </div>
-                </div>
-
-                <div class="inner-card">
-                  <div class="right">
-                    <img src="static/use.jpeg" alt="">
-                  </div>
-                  <div class="left">
-                   <h1>NLP Task</h1>
-                   <p>Redesigning a legacy mobile app for India’s largest private bank to appeal to a wider user base</p>
-                   <ul>
-                     <li>NLP</li>
-                     <li>TENSERFLOW</li>
-                     <li>FLASK</li>
-                     <li>PYTHON</li>
-                   </ul>
-                   <div class="project-btn">
-                     <a href="{{ url_for('project_2') }}" class="btn btn--bg">view</a>
-                     <a href="./#projects" class="btn btn--bg">github</a>
-                   </div>
-                  </div>
-                </div>
-                
-                <div class="inner-card">
-                  <div class="right">
-                    <img src="static/use.jpeg" alt="">
-                  </div>
-                  <div class="left">
-                   <h1>NLP Task</h1>
-                   <p>Redesigning a legacy mobile app for India’s largest private bank to appeal to a wider user base</p>
-                   <ul>
-                     <li>NLP</li>
-                     <li>TENSERFLOW</li>
-                     <li>FLASK</li>
-                     <li>PYTHON</li>
-                   </ul>
-                   <div class="project-btn">
-                    <a href="{{ url_for('project_3') }}" class="btn btn--bg">view</a>
-                    <a href="./#projects" class="btn btn--bg">github</a>
-                   </div>
-                  </div>
-                </div>
-
-
-
-                <div class="inner-card">
-                  <div class="right">
-                    <img src="static/use.jpeg" alt="">
-                  </div>
-                  <div class="left">
-                   <h1>NLP Task</h1>
-                   <p>Redesigning a legacy mobile app for India’s largest private bank to appeal to a wider user base</p>
-                   <ul>
-                     <li>NLP</li>
-                     <li>TENSERFLOW</li>
-                     <li>FLASK</li>
-                     <li>PYTHON</li>
-                   </ul>
-                   <div class="project-btn">
-                    <a href="{{ url_for('project_4') }}" class="btn btn--bg">view</a>
-                    <a href="./#projects" class="btn btn--bg">github</a>
-                   </div>
-                  </div>
-                </div>
-               
-
-              <div class="project-btn">
-                <a href="{{ url_for('projects') }}" class="btn btn--bg">More</a>
-              </div>
             </div>
         </div>
 
+        <div class="inner-card">
+            <div class="right">
+                <img src="static/use.jpeg" alt="">
+            </div>
+            <div class="left">
+                <h1>Data Analytics Dashboard</h1>
+                <p>Interactive dashboard for visualizing complex datasets, with real-time filtering and analysis capabilities.</p>
+                <ul>
+                    <li>Python</li>
+                    <li>Dash</li>
+                    <li>Plotly</li>
+                    <li>Pandas</li>
+                </ul>
+                <div class="project-btn">
+                    <a href="{{ url_for('project_details', project_id=2) }}" class="btn btn--bg">view</a>
+                    <a href="https://github.com/krunalpatel355/analytics-dashboard" class="btn btn--bg">github</a>
+                </div>
+            </div>
+        </div>
         
-        <footer class="footer">
-          <div class="footer__addr">
-            <h1 class="footer__logo">krunal patel</h1>
-                
-            <h2>Contact :</h2>
-            
-            <email>krunalpatel35538@gmail.com
-             <br>
-                  
-              <a class="footer__btn" href="mailto:krunalpatel35538@gmail.com">Email Us</a>
-            </address>
-          </div>
-        
-          <ul class="footer__nav">
-            <li class="nav__item">
-              <h2 class="nav__title">My Profile</h2>
-        
-              <ul class="nav__ul">
-                <li>
-                  <a href="https://github.com/krunalpatel355">GitHub</a>
-                </li>
-        
-                <li>
-                  <a href="https://www.linkedin.com/in/krunalpatel35538/">linkdin</a>
-                </li>
-                    
-                <li>
-                  <a href="#">resume</a>
-                </li>
-              </ul>
-            </li>
-            
-            
-          
-   
-        </footer>
+        <div class="inner-card">
+            <div class="right">
+                <img src="static/use.jpeg" alt="">
+            </div>
+            <div class="left">
+                <h1>Machine Learning Model</h1>
+                <p>Predictive model using machine learning algorithms to forecast trends based on historical data.</p>
+                <ul>
+                    <li>Scikit-learn</li>
+                    <li>Python</li>
+                    <li>Jupyter</li>
+                    <li>Matplotlib</li>
+                </ul>
+                <div class="project-btn">
+                    <a href="{{ url_for('project_details', project_id=3) }}" class="btn btn--bg">view</a>
+                    <a href="https://github.com/krunalpatel355/ml-model" class="btn btn--bg">github</a>
+                </div>
+            </div>
+        </div>
 
+        <div class="inner-card">
+            <div class="right">
+                <img src="static/use.jpeg" alt="">
+            </div>
+            <div class="left">
+                <h1>Portfolio Website</h1>
+                <p>A personal portfolio website built with Flask and modern web technologies.</p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Python</li>
+                    <li>Flask</li>
+                </ul>
+                <div class="project-btn">
+                    <a href="{{ url_for('project_details', project_id=4) }}" class="btn btn--bg">view</a>
+                    <a href="https://github.com/krunalpatel355/portfolio" class="btn btn--bg">github</a>
+                </div>
+            </div>
+        </div>
+            
+        <div class="project-btn">
+            <a href="{{ url_for('projects') }}" class="btn btn--bg">More</a>
+        </div>
     </div>
-    
-
-</body>
-</html>
+</div>
+{% endblock %}

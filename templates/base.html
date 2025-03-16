@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Krunal Patel - Portfolio{% endblock %}</title>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- All styles now in one CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Any additional page-specific styles can still be added if needed -->
+    {% block additional_styles %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">krunal</a>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page content block -->
+        {% block content %}{% endblock %}
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer__addr">
+                <h1 class="footer__logo">krunal patel</h1>
+                
+                <h2>Contact :</h2>
+                
+                <email>krunalpatel35538@gmail.com
+                <br>
+                    
+                <a class="footer__btn" href="mailto:krunalpatel35538@gmail.com">Email Us</a>
+                </address>
+            </div>
+        
+            <ul class="footer__nav">
+                <li class="nav__item">
+                    <h2 class="nav__title">My Profile</h2>
+            
+                    <ul class="nav__ul">
+                        <li>
+                            <a href="https://github.com/krunalpatel355">GitHub</a>
+                        </li>
+                
+                        <li>
+                            <a href="https://www.linkedin.com/in/krunalpatel35538/">linkdin</a>
+                        </li>
+                            
+                        <li>
+                            <a href="#">resume</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- Base scripts -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>
