@@ -116,15 +116,15 @@
                 <span class="tag">Flask</span>
                 <span class="tag">Python</span>
             </div>
-            <div class="buttons">
-                <a href="#" class="btn btn-primary">
+            <div class="buttons-pro">
+                <a href="{{ url_for('project_details', project_id=1) }}" class="btn-pro btn-pro-primary">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                     </svg>
-                    Live Demo
+                    details
                 </a>
-                <a href="#" class="btn btn-secondary">
+                <a href="https://github.com/krunalpatel355/nlp-project" class="btn-pro btn-pro-secondary">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
@@ -166,90 +166,6 @@
     </div>
 
 
-    <!-- <div class="container">
-        <div class="inner-card">
-            <div class="right">
-                <img src="static/use.jpeg" alt="">
-            </div>
-            <div class="left">
-                <h1>NLP Task</h1>
-                <p>Redesigning a legacy mobile app for India's largest private bank to appeal to a wider user base</p>
-                <ul>
-                    <li>NLP</li>
-                    <li>TENSERFLOW</li>
-                    <li>FLASK</li>
-                    <li>PYTHON</li>
-                </ul>
-                <div class="project-btn">
-                    <a href="{{ url_for('project_details', project_id=1) }}" class="btn btn--bg">view</a>
-                    <a href="https://github.com/krunalpatel355/nlp-project" class="btn btn--bg">github</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="inner-card">
-            <div class="right">
-                <img src="static/use.jpeg" alt="">
-            </div>
-            <div class="left">
-                <h1>Data Analytics Dashboard</h1>
-                <p>Interactive dashboard for visualizing complex datasets, with real-time filtering and analysis capabilities.</p>
-                <ul>
-                    <li>Python</li>
-                    <li>Dash</li>
-                    <li>Plotly</li>
-                    <li>Pandas</li>
-                </ul>
-                <div class="project-btn">
-                    <a href="{{ url_for('project_details', project_id=2) }}" class="btn btn--bg">view</a>
-                    <a href="https://github.com/krunalpatel355/analytics-dashboard" class="btn btn--bg">github</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="inner-card">
-            <div class="right">
-                <img src="static/use.jpeg" alt="">
-            </div>
-            <div class="left">
-                <h1>Machine Learning Model</h1>
-                <p>Predictive model using machine learning algorithms to forecast trends based on historical data.</p>
-                <ul>
-                    <li>Scikit-learn</li>
-                    <li>Python</li>
-                    <li>Jupyter</li>
-                    <li>Matplotlib</li>
-                </ul>
-                <div class="project-btn">
-                    <a href="{{ url_for('project_details', project_id=3) }}" class="btn btn--bg">view</a>
-                    <a href="https://github.com/krunalpatel355/ml-model" class="btn btn--bg">github</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="inner-card">
-            <div class="right">
-                <img src="static/use.jpeg" alt="">
-            </div>
-            <div class="left">
-                <h1>Portfolio Website</h1>
-                <p>A personal portfolio website built with Flask and modern web technologies.</p>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Python</li>
-                    <li>Flask</li>
-                </ul>
-                <div class="project-btn">
-                    <a href="{{ url_for('project_details', project_id=4) }}" class="btn btn--bg">view</a>
-                    <a href="https://github.com/krunalpatel355/portfolio" class="btn btn--bg">github</a>
-                </div>
-            </div>
-        </div>
-            
-        <div class="project-btn">
-            <a href="{{ url_for('projects') }}" class="btn btn--bg">More</a>
-        </div>
-    </div> -->
+    
 </div>
 {% endblock %}

@@ -462,13 +462,13 @@ h1 {
     transform: translateY(-1px);
 }
 
-/* .buttons {
+.buttons-pro {
     display: flex;
     gap: 1rem;
     margin-top: auto;
 }
 
-.btn {
+.btn-pro {
     flex: 1;
     padding: 0.8rem;
     border-radius: 0.5rem;
@@ -482,32 +482,32 @@ h1 {
     font-weight: 500;
 }
 
-.btn:hover {
+.btn-pro:hover {
     transform: translateY(-2px);
 }
 
-.btn .icon {
+.btn-pro .icon {
     width: 20px;
     height: 20px;
 }
 
-.btn-primary {
+.btn-pro-primary {
     background: #3b82f6;
     color: white;
 }
 
-.btn-primary:hover {
+.btn-pro-primary:hover {
     background: #2563eb;
 }
 
-.btn-secondary {
+.btn-pro-secondary {
     background: #f1f5f9;
     color: #475569;
 }
 
-.btn-secondary:hover {
+.btn-pro-secondary:hover {
     background: #e2e8f0;
-} */
+}
 
 /* Features Section */
 .features {
