@@ -5,52 +5,51 @@
 {% block content %}
 <section id="project-showcase">
     <div class="container">
-        <h1>Case Studies</h1>
-        <p>Don't take my word for it. Watch us in action.</p>
+        <div class="project-header">
+            <h1>My Projects</h1>
+            <p>Exploring innovation through code and data</p>
+        </div>
 
         <!-- Filters -->
         <div class="filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Data Analytics & AI">Data Analytics & AI</button>
-            <button class="filter-btn" data-filter="Mobile App Development">Mobile App Development</button>
-            <button class="filter-btn" data-filter="Product Development">Product Development</button>
-            <button class="filter-btn" data-filter="Software Development">Software Development</button>
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="AI/ML">AI/ML</button>
+            <button class="filter-btn" data-filter="Data Analytics">Data Analytics</button>
+            <button class="filter-btn" data-filter="Web Development">Web Development</button>
+            <button class="filter-btn" data-filter="Python">Python</button>
         </div>
 
         <!-- Project Cards -->
         <div class="project-cards">
             {% for id, project in projects.items() %}
-            <div class="card" data-category="{{ ', '.join(project.tools) }}">
-                <a href="{{ url_for('project_details', project_id=id) }}">
+            <div class="card" data-category="{{ ' '.join(project.tools) }}">
+                <div class="card-image">
                     <img src="{{ project.images[0] }}" alt="{{ project.title }}">
+                    <div class="card-overlay">
+                        <div class="card-links">
+                            {% if project.live_link %}
+                            <a href="{{ project.live_link }}" class="overlay-btn" target="_blank">Live Demo</a>
+                            {% endif %}
+                            <a href="{{ project.github_link }}" class="overlay-btn" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
                     <h3>{{ project.title }}</h3>
-                    <p>{{ ", ".join(project.tools[:2]) }}</p>
-                    <p>{{ project.description[:100] }}{% if project.description|length > 100 %}...{% endif %}</p>
-                </a>
+                    <div class="card-tags">
+                        {% for tool in project.tools[:3] %}
+                        <span class="tag">{{ tool }}</span>
+                        {% endfor %}
+                    </div>
+                    <p class="card-description">{{ project.description[:100] }}{% if project.description|length > 100 %}...{% endif %}</p>
+                    <a href="{{ url_for('project_details', project_id=id) }}" class="card-btn">View Details</a>
+                </div>
             </div>
             {% endfor %}
 
-            <!-- Keep original cards as examples if no projects are available -->
             {% if not projects %}
-            <div class="card" data-category="Product Development">
-                <img src="static/use.jpeg" alt="Codebasics">
-                <h3>Codebasics</h3>
-                <p>Product Development</p>
-                <p>Empowering Data Analytics and Data Science Students...</p>
-            </div>
-
-            <div class="card" data-category="Data Analytics & AI">
-                <img src="static/use.jpeg" alt="Alacritics Analytics">
-                <h3>Alacritics Analytics</h3>
-                <p>Data Analytics & AI</p>
-                <p>A Game-Changer Vendor Procurement Platform...</p>
-            </div>
-
-            <div class="card" data-category="Mobile App Development Product Development Software Development">
-                <img src="static/use.jpeg" alt="Moon Tower Tickets">
-                <h3>Moon Tower Tickets</h3>
-                <p>Mobile App Development, Product Development, Software Development</p>
-                <p>The traditional way of purchasing tickets...</p>
+            <div class="no-projects">
+                <p>No projects available at the moment.</p>
             </div>
             {% endif %}
         </div>
@@ -60,41 +59,48 @@
 
 {% block scripts %}
 <script>
-    // Get all filter buttons
+document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-
-    // Get all project cards
     const cards = document.querySelectorAll('.card');
 
-    // Add event listeners to filter buttons
+    // Animation function for cards
+    function animateCard(card, delay) {
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, delay);
+    }
+
+    // Initialize cards with animation
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        animateCard(card, index * 100);
+    });
+
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to the clicked button
             button.classList.add('active');
 
-            // Get the filter value of the clicked button
-            const filterValue = button.getAttribute('data-filter');
+            const filterValue = button.getAttribute('data-filter').toLowerCase();
 
-            // Loop through the cards
             cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-
-                // Show all cards if filter is 'all'
-                if (filterValue === 'all') {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                const categories = card.getAttribute('data-category').toLowerCase();
+                
+                if (filterValue === 'all' || categories.includes(filterValue)) {
                     card.style.display = 'block';
+                    animateCard(card, 100);
                 } else {
-                    // Only show the card if its category matches the filter
-                    if (cardCategory.includes(filterValue)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    card.style.display = 'none';
                 }
             });
         });
     });
+});
 </script>
 {% endblock %}

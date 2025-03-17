@@ -20,7 +20,7 @@
                 <ul class="nav-links">
                     <li><a href="{{ url_for('about') }}">About</a></li>
                     <li><a href="{{ url_for('projects') }}">Projects</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('resume') }}">Resume</a></li>
                 </ul>
             </div>
         </nav>
@@ -30,37 +30,48 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="footer__addr">
-                <h1 class="footer__logo">krunal patel</h1>
-                
-                <h2>Contact :</h2>
-                
-                <email>krunalpatel35538@gmail.com
-                <br>
-                    
-                <a class="footer__btn" href="mailto:krunalpatel35538@gmail.com">Email Us</a>
-                </address>
+            <div class="footer__content">
+                <div class="footer__addr">
+                    <h1 class="footer__logo">Krunal Patel</h1>
+                    <p class="footer__tagline">Big Data & AI Enthusiast</p>
+                    <div class="footer__contact">
+                        <h2>Contact</h2>
+                        <p><a href="mailto:krunalpatel35538@gmail.com">krunalpatel35538@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="footer__nav">
+                    <div class="footer__nav-section">
+                        <h2 class="nav__title">Navigation</h2>
+                        <ul class="nav__ul">
+                            <li><a href="{{ url_for('about') }}">About</a></li>
+                            <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                            <li><a href="{{ url_for('resume') }}">Resume</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__nav-section">
+                        <h2 class="nav__title">Connect</h2>
+                        <ul class="nav__ul social-links">
+                            <li>
+                                <a href="https://github.com/krunalpatel355" target="_blank">
+                                    <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub">
+                                    GitHub
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/krunalpatel35538/" target="_blank">
+                                    <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+                                    LinkedIn
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        
-            <ul class="footer__nav">
-                <li class="nav__item">
-                    <h2 class="nav__title">My Profile</h2>
-            
-                    <ul class="nav__ul">
-                        <li>
-                            <a href="https://github.com/krunalpatel355">GitHub</a>
-                        </li>
-                
-                        <li>
-                            <a href="https://www.linkedin.com/in/krunalpatel35538/">linkdin</a>
-                        </li>
-                            
-                        <li>
-                            <a href="#">resume</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="footer__bottom">
+                <p>&copy; 2024 Krunal Patel. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 

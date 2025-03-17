@@ -8,7 +8,7 @@ project_data = {
         "id": 1,
         "title": "NLP Task",
         "description": "A natural language processing project that analyzes text sentiment and extracts key information. This project uses advanced ML algorithms to provide insights from unstructured text data.",
-        "tools": ["NLP", "TENSORFLOW", "FLASK", "PYTHON"],
+        "tools": ["NLP", "TENSORFLOW", "AI/ML", "PYTHON"],
         "images": ["/static/use.jpeg", "/static/use.jpeg", "/static/use.jpeg"],
         "github_link": "https://github.com/krunalpatel355/nlp-project",
         "live_link": None
@@ -64,9 +64,9 @@ def project_details(project_id):
         # Handle case where project doesn't exist
         return "Project not found", 404
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')
 
 if __name__ == '__main__':
     app.run(debug=True,host = "0.0.0.0",port = 8080)
